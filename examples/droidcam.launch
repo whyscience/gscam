@@ -1,0 +1,11 @@
+<launch>
+  <env name="GSCAM_CONFIG" value="souphttpsrc location=http://192.168.10.144:4747/video ! jpegdec ! videoconvert ! video/x-raw,format=RGB ! appsink name=appsink"/>
+  <!-- 可选参数 -->
+  <param name="camera_frame_id" value="camera" />
+  <param name="image_encoding" value="rgb8" />
+
+  <!-- 启动 gscam 节点 -->
+  <node name="gscam_publisher" pkg="gscam" type="gscam" output="screen">
+    <param name="camera_name" value="ipcam" />
+  </node>
+</launch>
